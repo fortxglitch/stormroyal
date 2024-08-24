@@ -7,20 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Popup Video -->
-    <div id="video-popup" class="video-popup">
-        <div class="video-popup-content">
-            <span class="close-button">&times;</span>
-            <video controls>
-                <source src="path-to-your-video.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la balise vidéo.
-            </video>
-        </div>
-    </div>
-
     <header>
         <div class="container">
-            <h1>Storm Royal </h1>
+            <h1>Storm Royal</h1>
             <nav>
                 <ul>
                     <li><a href="#">Accueil</a></li>
@@ -38,6 +27,8 @@
             <h2>Bienvenue sur le site officiel de Storm Royal !</h2>
             <p> </p>
             <button id="scrollToTop" title="Remonter en haut">▲</button>
+            <!-- Bouton pour ouvrir le popup vidéo -->
+            <button id="openVideo" class="button">Voir la vidéo</button>
         </div>
     </section>
 
@@ -95,6 +86,14 @@
             <p>&copy; 2024 Mon Jeu Fortnite. Tous droits réservés.</p>
         </div>
     </footer>
+
+    <!-- Popup vidéo -->
+    <div id="videoPopup" class="video-popup">
+        <div class="video-popup-content">
+            <span class="close-button">&times;</span>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Iqr3XIhSnUQ?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
