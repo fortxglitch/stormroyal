@@ -1,36 +1,75 @@
-// JavaScript pour afficher et masquer le popup vidéo
-document.addEventListener('DOMContentLoaded', function() {
-    var videoPopup = document.getElementById('videoPopup');
-    var closeButton = document.querySelector('.close-button');
-    var scrollToTopButton = document.getElementById('scrollToTop');
+// Fonction pour faire défiler la page vers le haut
+const scrollToTopBtn = document.getElementById('scrollToTop');
 
-    // Afficher le popup vidéo
-    window.onload = function() {
-        videoPopup.style.display = 'flex'; // Afficher le popup
-    };
+function handleScroll() {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.style.display = 'block';
+    } else {
+        scrollToTopBtn.style.display = 'none';
+    }
+}
 
-    // Fermer le popup vidéo
-    closeButton.addEventListener('click', function() {
-        videoPopup.style.display = 'none'; // Masquer le popup
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
+}
 
-    // Fermer le popup en cliquant en dehors de la vidéo
-    videoPopup.addEventListener('click', function(event) {
-        if (event.target === videoPopup) {
-            videoPopup.style.display = 'none'; // Masquer le popup
-        }
-    });
+scrollToTopBtn.addEventListener('click', scrollToTop);
+document.addEventListener('scroll', handleScroll);
 
-    // Fonction pour faire défiler la page vers le haut
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            scrollToTopButton.style.display = 'block';
-        } else {
-            scrollToTopButton.style.display = 'none';
-        }
-    });
+// Menu mobile
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('nav ul');
 
-    scrollToTopButton.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
 });
+
+// Carrousel
+const prevButton = document.querySelector('.carousel-control.prev');
+const nextButton = document.querySelector('.carousel-control.next');
+const carouselItems = document.querySelectorAll('.carousel-item');
+let currentIndex = 0;
+
+function showSlide(index) {
+    carouselItems.forEach((item, i) => {
+        item.style.transform = `translateX(${(i - index) * 100}%)`;
+    });
+}
+
+function showPrevSlide() {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
+    showSlide(currentIndex);
+}
+
+function showNextSlide() {
+    currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
+    showSlide(currentIndex);
+}
+
+prevButton.addEventListener('click', showPrevSlide);
+nextButton.addEventListener('click', showNextSlide);
+
+// Initialisation du carrousel
+showSlide(currentIndex);
+
+// Fonction pour afficher et masquer le popup vidéo
+const videoPopup = document.getElementById('videoPopup');
+const closeButton = document.querySelector('.video-popup .close-button');
+
+function openVideoPopup() {
+    videoPopup.style.display = 'flex';
+}
+
+function closeVideoPopup() {
+    videoPopup.style.display = 'none';
+}
+
+closeButton.addEventListener('click', closeVideoPopup);
+
+// Ouvrir automatiquement la vidéo lorsque la page se charge
+window.onload = function() {
+    openVideoPopup();
+};
