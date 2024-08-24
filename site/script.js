@@ -68,13 +68,13 @@ function openVideoPopup() {
 
 function closeVideoPopup() {
     videoPopup.style.display = 'none';
-    // Réinitialiser la source de l'iframe pour arrêter la vidéo
+    // Réinitialiser la source de l'iframe pour arrêter la vidéo et le son
     videoIframe.src = "";
 }
-
-closeButton.addEventListener('click', closeVideoPopup);
 
 // Ouvrir automatiquement la vidéo lorsque la page se charge
 window.onload = function() {
     openVideoPopup();
 };
+
+closeButton.addEventListener('click', closeVideoPopup);
