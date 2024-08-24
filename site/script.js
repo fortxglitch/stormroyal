@@ -56,20 +56,9 @@ nextButton.addEventListener('click', showNextSlide);
 showSlide(currentIndex);
 
 // Popup vidéo
-const videoPopup = document.createElement('div');
-videoPopup.classList.add('video-popup');
-
-videoPopup.innerHTML = `
-    <div class="video-popup-content">
-        <span class="close-button">&times;</span>
-        <video controls autoplay>
-            <source src="path/to/your/video.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas le format vidéo.
-        </video>
-    </div>
-`;
-
-document.body.appendChild(videoPopup);
+const videoPopup = document.getElementById('videoPopup');
+const openVideoButton = document.getElementById('openVideo');
+const closeButton = document.querySelector('.video-popup .close-button');
 
 function showVideoPopup() {
     videoPopup.style.display = 'flex';
@@ -79,7 +68,8 @@ function hideVideoPopup() {
     videoPopup.style.display = 'none';
 }
 
-document.querySelector('.close-button').addEventListener('click', hideVideoPopup);
+openVideoButton.addEventListener('click', showVideoPopup);
+closeButton.addEventListener('click', hideVideoPopup);
 
 // Afficher le popup vidéo au chargement de la page
 window.addEventListener('load', showVideoPopup);
