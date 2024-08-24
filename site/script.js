@@ -58,18 +58,18 @@ showSlide(currentIndex);
 // Fonction pour afficher et masquer le popup vidéo
 const videoPopup = document.getElementById('videoPopup');
 const closeButton = document.querySelector('.video-popup .close-button');
+const videoIframe = document.getElementById('videoIframe');
 
 function openVideoPopup() {
     videoPopup.style.display = 'flex';
+    // Démarrer la vidéo automatiquement
+    videoIframe.src = "https://www.youtube.com/embed/Iqr3XIhSnUQ?autoplay=1&controls=1&loop=0";
 }
 
 function closeVideoPopup() {
     videoPopup.style.display = 'none';
-    const videoIframe = document.getElementById('videoIframe');
-    // Réinitialiser la source de l'iframe pour arrêter la lecture de la vidéo
+    // Réinitialiser la source de l'iframe pour arrêter la vidéo
     videoIframe.src = "";
-    // Relancer la vidéo automatiquement sans boucle
-    videoIframe.src = "https://www.youtube.com/embed/Iqr3XIhSnUQ?autoplay=1&controls=0";
 }
 
 closeButton.addEventListener('click', closeVideoPopup);
