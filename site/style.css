@@ -3,7 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: url('image/fond.jpg') no-repeat center center;
+    background-size: cover;;
 }
 
 .container {
@@ -233,4 +234,46 @@ footer {
     color: #fff;
     font-size: 24px;
     cursor: pointer;
+}
+
+/* Styles des pop-ups de statut */
+.status-popup {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 300px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-left: 10px solid; /* Bordure colorée sur le côté gauche */
+}
+
+.status-popup .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Couleurs des pop-ups */
+.server-problem-popup {
+    background-color: #333; /* Noir */
+    border-left-color: #ff8001; /* orange clair */
+}
+
+.server-closed-popup {
+    background-color: #333; /* Noir */
+    border-left-color: #fe0101; /* rouge clair */
+}
+
+.update-popup {
+    background-color: #333; /* Noir */
+    border-left-color: #05deff; /* bleu clair */
 }
