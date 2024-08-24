@@ -1,56 +1,19 @@
-// Fonction pour faire défiler la page vers le haut
-const scrollToTopBtn = document.getElementById('scrollToTop');
+document.addEventListener('DOMContentLoaded', function() {
+    var videoPopup = document.getElementById('video-popup');
+    var closeButton = document.querySelector('.close-button');
 
-function handleScroll() {
-    if (window.scrollY > 300) {
-        scrollToTopBtn.style.display = 'block';
-    } else {
-        scrollToTopBtn.style.display = 'none';
-    }
-}
+    // Afficher le popup lorsque la page se charge
+    videoPopup.style.display = 'flex';
 
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+    // Fermer le popup lorsque l'utilisateur clique sur la croix
+    closeButton.addEventListener('click', function() {
+        videoPopup.style.display = 'none';
     });
-}
 
-scrollToTopBtn.addEventListener('click', scrollToTop);
-document.addEventListener('scroll', handleScroll);
-
-// Menu mobile
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('nav ul');
-
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
+    // Fermer le popup lorsque l'utilisateur clique en dehors du contenu
+    videoPopup.addEventListener('click', function(event) {
+        if (event.target === videoPopup) {
+            videoPopup.style.display = 'none';
+        }
+    });
 });
-
-// Carrousel
-const prevButton = document.querySelector('.carousel-control.prev');
-const nextButton = document.querySelector('.carousel-control.next');
-const carouselItems = document.querySelectorAll('.carousel-item');
-let currentIndex = 0;
-
-function showSlide(index) {
-    carouselItems.forEach((item, i) => {
-        item.style.transform = `translateX(${(i - index) * 100}%)`;
-    });
-}
-
-function showPrevSlide() {
-    currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
-    showSlide(currentIndex);
-}
-
-function showNextSlide() {
-    currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
-    showSlide(currentIndex);
-}
-
-prevButton.addEventListener('click', showPrevSlide);
-nextButton.addEventListener('click', showNextSlide);
-
-// Initialisation du carrousel
-showSlide(currentIndex);
