@@ -66,9 +66,10 @@ function openVideoPopup() {
 function closeVideoPopup() {
     videoPopup.style.display = 'none';
     const videoIframe = document.getElementById('videoIframe');
-    // Arrêter la vidéo en remplaçant la source
+    // Réinitialiser la source de l'iframe pour arrêter la lecture de la vidéo
     videoIframe.src = "";
-    videoIframe.src = "https://www.youtube.com/embed/Iqr3XIhSnUQ?autoplay=1&controls=0&loop=1&playlist=Iqr3XIhSnUQ";
+    // Réinitialiser la source de l'iframe pour relancer la vidéo (sans répétition)
+    videoIframe.src = "https://www.youtube.com/embed/Iqr3XIhSnUQ?autoplay=1&controls=0";
 }
 
 closeButton.addEventListener('click', closeVideoPopup);
