@@ -68,7 +68,7 @@ function closeVideoPopup() {
     const videoIframe = document.getElementById('videoIframe');
     // Réinitialiser la source de l'iframe pour arrêter la lecture de la vidéo
     videoIframe.src = "";
-    // Réinitialiser la source de l'iframe pour relancer la vidéo (sans répétition)
+    // Relancer la vidéo automatiquement sans boucle
     videoIframe.src = "https://www.youtube.com/embed/Iqr3XIhSnUQ?autoplay=1&controls=0";
 }
 
