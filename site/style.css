@@ -1,233 +1,41 @@
-/* Styles de base */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-/* Header avec la bande noire */
-header {
-    background-color: #333; /* Couleur de la bande noire */
-    color: #fff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #77aaff 3px solid;
-    text-align: center;
-    position: relative;
-}
-
-header h1 {
-    margin: 0;
-    padding: 0;
-    font-size: 24px;
-}
-
-header a {
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
-}
-
-header ul {
-    padding: 0;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-header ul li {
-    display: inline;
-    padding: 0 20px;
-}
-
-header ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Navigation mobile */
-.menu-toggle {
-    display: none;
-    background-color: #77aaff;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-/* Hero section */
-.hero {
-    background: url('image/bande1.png') no-repeat center center;
-    background-size: cover;
-    height: 400px;
-    color: #000000e0;
-    text-align: center;
-    padding-top: 100px;
-    position: relative;
-}
-
-.hero h2 {
-    font-size: 36px;
-    margin: 0;
-}
-
-.hero p {
-    font-size: 18px;
-}
-
-/* Features section */
-.features {
-    margin-top: 40px;
-}
-
-.feature-item {
-    background: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.feature-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Download section */
-.download {
-    background: url('image/background.png') no-repeat center center;
-    background-size: cover;
-    height: 250px;
-    color: #0b0000;
-    text-align: center;
-    padding-top: 100px;
-    position: relative;
-}
-
-/* Carousel */
-.carousel {
-    margin: 40px 0;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-}
-
-.carousel-inner {
-    display: flex;
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel-item {
-    min-width: 100%;
-    transition: transform 0.5s ease;
-}
-
-.carousel-item img {
-    width: 100%;
-    display: block;
-}
-
-.carousel-control {
-    background-color: #77aaff;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    font-size: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.carousel-control:hover {
-    background-color: #0056b3;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-/* Footer */
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 40px;
-}
-
-/* Styles pour le bouton Remonter en haut */
-#scrollToTop {
+/* Styles pour le popup vidéo */
+.video-popup {
     display: none;
     position: fixed;
-    bottom: 40px;
-    right: 40px;
-    z-index: 100;
-    background-color: #77aaff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.video-popup-content {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.video-popup video {
+    width: 100%;
+    height: auto;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
     cursor: pointer;
-    font-size: 18px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease;
 }
 
-#scrollToTop:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
-}
-
-/* Styles pour la version mobile */
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    nav ul {
-        display: none;
-        width: 100%;
-        text-align: center;
-        background-color: #333;
-        padding: 0;
-    }
-
-    nav ul.open {
-        display: block;
-    }
-
-    nav ul li {
-        display: block;
-        padding: 10px 0;
-    }
-
-    nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        display: block;
-        padding: 10px;
-    }
+.close-button:hover {
+    color: #000;
 }
