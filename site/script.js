@@ -1,7 +1,7 @@
 // Variables pour activer/désactiver les pop-ups
 const showServerProblemPopup = false; // Changez à false pour désactiver
 const showServerClosedPopup = false;  // Changez à false pour désactiver
-const showUpdatePopup = true;        // Changez à false pour désactiver
+const showUpdatePopup = false;        // Changez à false pour désactiver
 
 // Fonction pour afficher les pop-ups de statut
 function showStatusPopup(type) {
